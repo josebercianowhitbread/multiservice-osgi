@@ -1,4 +1,7 @@
-# Sample AEM project template
+# Managing multiple instances of the same Adobe Experience Manager OSGi service
+
+Implementation of the helpx guide:   
+https://helpx.adobe.com/experience-manager/using/osgi_multiservices.html
 
 This is a project template for AEM-based applications. It is intended as a best-practice set of examples as well as a potential starting point to develop your own functionality.
 
@@ -9,8 +12,11 @@ The main parts of the template are:
 * core: Java bundle containing all core functionality like OSGi services, listeners or schedulers, as well as component-related Java code such as servlets or request filters.
 * ui.apps: contains the /apps (and /etc) parts of the project, ie JS&CSS clientlibs, components, templates, runmode specific configs as well as Hobbes-tests
 * ui.content: contains sample content using the components from the ui.apps
-* ui.tests: Java bundle containing JUnit tests that are executed server-side. This bundle is not to be deployed onto production.
-* ui.launcher: contains glue code that deploys the ui.tests bundle (and dependent bundles) to the server and triggers the remote JUnit execution
+
+
+## AEM setup
+
+- You need to configure the SMTP server you will use beforehand. Following the instructions of the following URL http://help-forums.adobe.com/content/adobeforums/en/experience-manager-forum/adobe-experience-manager.topic.html/forum__2qnb-hi_guys_i_haveconf.html
 
 ## How to build
 
@@ -20,32 +26,15 @@ To build all the modules run in the project root directory the following command
 
 If you have a running AEM instance you can build and package the whole project and deploy into AEM with  
 
-    mvn clean install -PautoInstallPackage
+    mvn clean install -PautoInstallPackage -x settings.xml
     
 Or to deploy it to a publish instance, run
 
-    mvn clean install -PautoInstallPackagePublish
+    mvn clean install -PautoInstallPackagePublish -x settings.xml
     
 Or to deploy only the bundle to the author, run
 
-    mvn clean install -PautoInstallBundle
-
-## Testing
-
-There are three levels of testing contained in the project:
-
-* unit test in core: this show-cases classic unit testing of the code contained in the bundle. To test, execute:
-
-    mvn clean test
-
-* server-side integration tests: this allows to run unit-like tests in the AEM-environment, ie on the AEM server. To test, execute:
-
-    mvn clean integration-test -PintegrationTests
-
-* client-side Hobbes.js tests: JavaScript-based browser-side tests that verify browser-side behavior. To test:
-
-    in the browser, open the page in 'Developer mode', open the left panel and switch to the 'Tests' tab and find the generated 'MyName Tests' and run them.
-
+    mvn clean install -PautoInstallBundle -x settings.xml
 
 ## Maven settings
 
