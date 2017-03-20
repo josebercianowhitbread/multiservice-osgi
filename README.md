@@ -16,7 +16,11 @@ The main parts of the template are:
 
 ## AEM setup
 
-- You need to configure the SMTP server you will use beforehand. Following the instructions of the following URL http://help-forums.adobe.com/content/adobeforums/en/experience-manager-forum/adobe-experience-manager.topic.html/forum__2qnb-hi_guys_i_haveconf.html
+- Edit the file 
+`/apps/JoseMultiService/config.author/com.day.cq.mailer.DefaultMailService.config.xml`
+with your SMTP configuration.
+After deploying the project, you can check if your configuration was successfully applied by going to the Web Console and checking the '**Day CQ Mail Service**' bundle.  
+`http://localhost:4502/system/console/configMgr`
 
 ## How to build
 
