@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:OsgiConfig"
+    smtp.host="smtp.gmail.com"
+    smtp.port="34651"
+    smtp.user="example@gmail.com"      
+    smtp.password="password"
+    from.address="example@gmail.com"
+    smtp.ssl="{Boolean}true"
+    debug.email="{Boolean}true"
+    README="Configures the Mail Service with the default values for user/password, SMTP data, etc."/>
